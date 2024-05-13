@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: inter;
+    src: url("./assets/fonts/inter/Inter-VariableFont.ttf");
+    font-weight: 100 1000;
+  }
+}
+
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: inter;
+    src: url("./assets/fonts/inter/static/Inter-Regular.ttf");
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: inter;
+    src: url("./assets/fonts/inter/static/Inter-Bold.ttf");
+    font-weight: 700;
+  }
+}
