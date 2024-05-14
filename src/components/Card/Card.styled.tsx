@@ -21,6 +21,10 @@ const SCCard = styled("div")`
 
     img {
       display: block;
+
+      @media screen and (max-width: 1125px) {
+        width: 330px;
+      }
     }
   }
 
@@ -45,6 +49,10 @@ const SCCard = styled("div")`
       .fs-b1 {
         color: var(--milk-white);
       }
+
+      @media screen and (max-width: 1125px) {
+        gap: 16px;
+      }
     }
 
     .stats {
@@ -54,7 +62,24 @@ const SCCard = styled("div")`
       .fs-b2 {
         color: var(--ghost-white);
       }
+
+      @media screen and (max-width: 1125px) {
+        flex-direction: column;
+        gap: 25px;
+      }
     }
+
+    @media screen and (max-width: 1125px) {
+      gap: 40px;
+      width: 330px;
+      padding: 30px;
+      padding-top: 40px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 1125px) {
+    flex-direction: column;
   }
 `;
 

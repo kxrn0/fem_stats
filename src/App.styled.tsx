@@ -34,6 +34,11 @@ const SCApp = styled("div")`
   .fs-l {
     font-size: 36px;
     line-height: 44px;
+
+    @media screen and (max-width: 1125px) {
+      font-size: 28px;
+      line-height: 32px;
+    }
   }
 
   .fs-m {
@@ -43,6 +48,10 @@ const SCApp = styled("div")`
   .fs-b1 {
     font-size: 15px;
     letter-spacing: 1px;
+
+    @media screen and (max-width: 1125px) {
+      letter-spacing: 0;
+    }
   }
 
   .fs-b2 {

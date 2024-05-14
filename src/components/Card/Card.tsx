@@ -6,7 +6,7 @@ export default function Card() {
   return (
     <SCCard>
       <picture>
-        <source srcset={headerDesktop} media="(min-width: 1000px)" />
+        <source srcset={headerDesktop} media="(min-width: 1125px)" />
         <img src={headerMobile} alt="header image" />
       </picture>
       <div class="content">
