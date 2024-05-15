@@ -57,6 +57,16 @@ const SCApp = styled("div")`
   .fs-b2 {
     font-size: 12px;
   }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export default SCApp;

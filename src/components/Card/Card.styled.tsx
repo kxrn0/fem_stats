@@ -7,6 +7,8 @@ const SCCard = styled("div")`
   flex-direction: row-reverse;
   border-radius: 8px;
   overflow: hidden;
+  opacity: 0;
+  animation: appear 3s forwards;
 
   picture {
     position: relative;
