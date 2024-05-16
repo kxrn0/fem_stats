@@ -6,12 +6,14 @@ const SCCard = styled("div")`
   display: flex;
   flex-direction: row-reverse;
   border-radius: 8px;
-  overflow: hidden;
   opacity: 0;
-  animation: appear 3s forwards;
+  animation: anime-appear calc(3 * var(--time-unit)) forwards;
 
   picture {
     position: relative;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
 
     &::after {
       content: "";
@@ -28,6 +30,11 @@ const SCCard = styled("div")`
         width: 330px;
       }
     }
+
+    @media screen and (max-width: 1125px) {
+      border-top-left-radius: 8px;
+      border-bottom-right-radius: 0;
+    }
   }
 
   .content {
@@ -43,8 +50,22 @@ const SCCard = styled("div")`
       gap: 25px;
 
       .fs-l {
-        .highlight {
-          color: var(--soft-violet);
+        --x: -50vw;
+
+        transform: translate(-100vw);
+        animation: anime-enter calc(3 * var(--time-unit)) forwards;
+
+        .stars {
+          display: inline;
+
+          .container {
+            display: inline;
+
+            .text-anime {
+              --color-one: var(--soft-violet);
+              --color-two: violet;
+            }
+          }
         }
       }
 

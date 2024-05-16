@@ -39,8 +39,15 @@ export default class Vector {
     this.y = y;
   }
 
-  static random_vector(size: number = 1) {
+  static random_vector(size = 1) {
     const angle = random(0, Math.PI * 2);
+    const x = size * Math.cos(angle);
+    const y = size * Math.sin(angle);
+
+    return new Vector(x, y);
+  }
+
+  static from_angle(angle: number, size = 1) {
     const x = size * Math.cos(angle);
     const y = size * Math.sin(angle);
 

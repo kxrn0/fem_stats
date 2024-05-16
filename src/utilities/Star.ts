@@ -20,9 +20,7 @@ export default class Star {
     width: number,
     height: number,
     mass: number,
-    angle: number,
-    angularVelocity: number,
-    angularAcceleration: number
+    angle: number
   ) {
     this.position = position.clone();
     this.velocity = velocity.clone();
@@ -31,11 +29,10 @@ export default class Star {
     this.height = height;
     this.mass = mass;
     this.angle = angle;
-    this.angularVelocity = angularVelocity;
-    this.angularAcceleration = angularAcceleration;
+    this.angularVelocity = 0;
+    this.angularAcceleration = 0;
     this.alpha = 1;
     this.img = document.createElement("img");
-
     this.img.src = star;
   }
 
@@ -43,7 +40,7 @@ export default class Star {
     force = force.clone().scale(1 / this.mass);
 
     this.acceleration.add(force);
-    this.angularAcceleration = force.x / 10;
+    this.angularAcceleration += force.x / 10;
   }
 
   move() {
@@ -57,5 +54,21 @@ export default class Star {
 
   draw(context: CanvasRenderingContext2D) {
     context.beginPath();
+    context.translate(this.position.x, this.position.y);
+    context.rotate(this.angle);
+    context.globalAlpha = Math.max(this.alpha, 0);
+    context.drawImage(
+      this.img,
+      0,
+      0,
+      this.img.naturalWidth,
+      this.img.naturalHeight,
+      -this.width / 2,
+      -this.height / 2,
+      this.width,
+      this.height
+    );
+    context.globalAlpha = 1;
+    context.setTransform(1, 0, 0, 1, 0, 0);
   }
 }

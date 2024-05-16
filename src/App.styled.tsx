@@ -7,11 +7,14 @@ const SCApp = styled("div")`
   --soft-violet: hsl(277, 64%, 61%);
   --milk-white: hsla(0, 0%, 100%, 0.75);
   --ghost-white: hsla(0, 0%, 100%, 0.6);
+  --x: 0;
+  --y: 0;
 
   background: var(--very-dark-blue);
   display: grid;
   place-items: center;
   min-height: 100vh;
+  padding: 88px 0;
 
   .fs-l,
   .fs-m,
@@ -58,13 +61,47 @@ const SCApp = styled("div")`
     font-size: 12px;
   }
 
-  @keyframes appear {
+  .text-anime {
+    --bg-size: 400%;
+    --color-one: red;
+    --color-two: blue;
+
+    background: linear-gradient(
+        90deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one)
+      )
+      0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: anime-bg 8s infinite linear;
+
+    @keyframes anime-bg {
+      to {
+        background-position: var(--bg-size) 0;
+      }
+    }
+  }
+
+  @keyframes anime-appear {
     from {
       opacity: 0;
     }
 
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes anime-enter {
+    from {
+      transform: translate(var(--x), var(--y));
+    }
+
+    to {
+      transform: translate(0, 0);
     }
   }
 `;

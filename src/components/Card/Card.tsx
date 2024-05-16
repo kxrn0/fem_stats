@@ -1,8 +1,14 @@
 import headerDesktop from "../../assets/images/image-header-desktop.jpg";
 import headerMobile from "../../assets/images/image-header-mobile.jpg";
+import { TIME_UNIT } from "../../constants.ts";
+import Stars from "../Stars/Stars.tsx";
+import Typewriter from "../Typewriter/Typewriter.tsx";
 import SCCard from "./Card.styled.tsx";
 
 export default function Card() {
+  const description =
+    "Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.";
+
   return (
     <SCCard>
       <picture>
@@ -12,13 +18,19 @@ export default function Card() {
       <div class="content">
         <div class="text">
           <p class="fs-l">
-            Get <span class="highlight">insights</span> that help your business
-            grow.
+            Get{" "}
+            <Stars
+              canvasWidth={innerWidth}
+              canvasHeight={innerHeight}
+              delay={TIME_UNIT * 8}
+            >
+              <span class="text-anime">insights</span>
+            </Stars>{" "}
+            that help your business grow.
           </p>
-          <p class="fs-b1">
-            Discover the benefits of data analytics and make better decisions
-            regarding revenue, customer experience, and overall efficiency.
-          </p>
+          <div class="fs-b1">
+            <Typewriter text={description} delay={TIME_UNIT * 6} gap={33} />
+          </div>
         </div>
         <ul class="stats">
           <li>
