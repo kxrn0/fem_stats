@@ -1,28 +1,49 @@
-## Usage
+# Frontend Mentor - Stats preview card component solution
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+This is a solution to the [Stats preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/stats-preview-card-component-8JqbgoU62). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+## Table of contents
 
-## Available Scripts
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-In the project directory, you can run:
+## Overview
 
-### `npm run dev`
+### The challenge
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+Users should be able to:
 
-### `npm run build`
+- View the optimal layout depending on their device's screen size
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![](./shot.png)
 
-## Deployment
+### Links
 
-Learn more about deploying your application with the [documentations](https://vitejs.dev/guide/static-deploy.html)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Live](https://kxrn0.github.io/fem_stats/)
+- [Solution](https://github.com/kxrn0/fem_stats)
+
+## My process
+
+### Built with
+
+- CSS custom properties
+- Flexbox
+- [SolidJS™](https://solidjs.com) - Declarative UI framework.
+
+### Useful resources
+
+- [Nature of Code](https://natureofcode.com)
+
+## Author
+
+- Frontend Mentor - [@kxrn0](https://www.frontendmentor.io/profile/kxrn0)
+- Twitter - [@alhazred999](https://x.com/alhazred999)
