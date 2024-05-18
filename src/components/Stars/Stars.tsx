@@ -83,8 +83,6 @@ export default function Stars(props: Props) {
     }
 
     createEffect(() => {
-      console.log("sxaron!");
-
       if (props.canvasWidth || props.canvasHeight) {
         const box = contentRef.getBoundingClientRect();
 
