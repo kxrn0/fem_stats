@@ -55,7 +55,7 @@ export default function Typewriter(props: Props) {
     <SCTypewriter>
       <p class="hidden">{merged.text}</p>
       <div class="words">
-        <For each={words}>{(word) => <p>{word}</p>}</For>
+        <For each={words}>{(word) => <p aria-hidden="true">{word}</p>}</For>
       </div>
     </SCTypewriter>
   );

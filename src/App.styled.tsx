@@ -15,6 +15,7 @@ const SCApp = styled("div")`
   place-items: center;
   min-height: 100vh;
   padding: 88px 0;
+  overflow-y: hidden;
 
   .fs-l,
   .fs-m,

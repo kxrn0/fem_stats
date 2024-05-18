@@ -1,13 +1,34 @@
 import headerDesktop from "../../assets/images/image-header-desktop.jpg";
 import headerMobile from "../../assets/images/image-header-mobile.jpg";
 import { TIME_UNIT } from "../../constants.ts";
+import Counter from "../Counter/Counter.tsx";
 import Stars from "../Stars/Stars.tsx";
 import Typewriter from "../Typewriter/Typewriter.tsx";
 import SCCard from "./Card.styled.tsx";
+import { For, createSignal, onCleanup, onMount } from "solid-js";
 
 export default function Card() {
   const description =
     "Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.";
+  const [dimensions, setDimensions] = createSignal({
+    width: innerWidth,
+    height: innerHeight,
+  });
+  const stats = [
+    { to: 10, decoration: "k+", label: "COMPANIES" },
+    { to: 314, label: "TEMPLATES" },
+    { to: 12, decoration: "M+", label: "QUERIES" },
+  ];
+  const statsDuration = TIME_UNIT * 6;
+  const statsDelay = TIME_UNIT * 19;
+
+  function reset_dimensions() {
+    setDimensions({ width: innerWidth, height: innerHeight });
+  }
+
+  onMount(() => window.addEventListener("resize", reset_dimensions));
+
+  onCleanup(() => window.removeEventListener("resize", reset_dimensions));
 
   return (
     <SCCard>
@@ -20,8 +41,8 @@ export default function Card() {
           <p class="fs-l">
             Get{" "}
             <Stars
-              canvasWidth={innerWidth}
-              canvasHeight={innerHeight}
+              canvasWidth={dimensions().width}
+              canvasHeight={dimensions().height}
               delay={TIME_UNIT * 8}
             >
               <span class="text-anime">insights</span>
@@ -29,22 +50,25 @@ export default function Card() {
             that help your business grow.
           </p>
           <div class="fs-b1">
-            <Typewriter text={description} delay={TIME_UNIT * 6} gap={33} />
+            <Typewriter text={description} delay={TIME_UNIT * 4} gap={33} />
           </div>
         </div>
         <ul class="stats">
-          <li>
-            <p class="fs-m">10k+</p>
-            <p class="fs-b2">COMPANIES</p>
-          </li>
-          <li>
-            <p class="fs-m">314</p>
-            <p class="fs-b2">TEMPLATES</p>
-          </li>
-          <li>
-            <p class="fs-m">12M+</p>
-            <p class="fs-b2">QUERIES</p>
-          </li>
+          {
+            <For each={stats}>
+              {(stat) => (
+                <li class="fs-m">
+                  <Counter
+                    to={stat.to}
+                    decoration={stat.decoration || ""}
+                    duration={statsDuration}
+                    delay={statsDelay}
+                  />
+                  <p class="fs-b2">{stat.label}</p>
+                </li>
+              )}
+            </For>
+          }
         </ul>
       </div>
     </SCCard>

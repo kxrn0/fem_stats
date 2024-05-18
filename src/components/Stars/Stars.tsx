@@ -1,4 +1,10 @@
-import { createSignal, mergeProps, onCleanup, onMount } from "solid-js";
+import {
+  createEffect,
+  createSignal,
+  mergeProps,
+  onCleanup,
+  onMount,
+} from "solid-js";
 import { JSX } from "solid-js";
 import random from "../../utilities/random.ts";
 import Vector from "../../utilities/Vector.ts";
@@ -18,18 +24,18 @@ export default function Stars(props: Props) {
     props
   );
   const [animeId, setAnimeId] = createSignal(-1);
+  const [box, setBox] = createSignal<DOMRect | null>(null);
   let canvas!: HTMLCanvasElement;
   let contentRef!: HTMLDivElement;
 
   onMount(() => {
     const gravity = new Vector(0, 1);
     const context = canvas.getContext("2d")!;
-    const contentD = { width: 0, height: 0 };
     let stars: Star[];
 
     function add_star() {
-      const xOff = random(-contentD.width / 2, contentD.width / 2);
-      const yOff = random(-contentD.height / 2, contentD.height / 2);
+      const xOff = random(-box()!.width, box()!.width);
+      const yOff = random(-box()!.height, box()!.height);
       const position = new Vector(
         canvas.width / 2 + xOff,
         canvas.height / 2 + yOff
@@ -65,10 +71,9 @@ export default function Stars(props: Props) {
     }
 
     function init() {
-      const contentRekt = contentRef.getBoundingClientRect();
+      const box = contentRef.getBoundingClientRect();
 
-      contentD.width = contentRekt.width;
-      contentD.height = contentRekt.height;
+      setBox(box);
 
       canvas.width = merged.canvasWidth;
       canvas.height = merged.canvasHeight;
@@ -76,6 +81,19 @@ export default function Stars(props: Props) {
 
       setAnimeId(requestAnimationFrame(anime));
     }
+
+    createEffect(() => {
+      console.log("sxaron!");
+
+      if (props.canvasWidth || props.canvasHeight) {
+        const box = contentRef.getBoundingClientRect();
+
+        setBox(box);
+
+        canvas.width = props.canvasWidth!;
+        canvas.height = props.canvasHeight!;
+      }
+    });
 
     setTimeout(init, merged.delay);
   });

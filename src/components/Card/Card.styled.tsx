@@ -82,8 +82,22 @@ const SCCard = styled("div")`
       display: flex;
       justify-content: space-between;
 
-      .fs-b2 {
-        color: var(--ghost-white);
+      li {
+        --y: 50vh;
+        transform: translate(0, var(--y));
+        opacity: 0;
+        animation: anime-enter calc(3 * var(--time-unit)) forwards,
+          anime-appear calc(3 * var(--time-unit)) forwards;
+        animation-delay: calc(15 * var(--time-unit));
+
+        .fs-b2 {
+          color: var(--ghost-white);
+        }
+        @media screen and (max-width: 1125px) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
       }
 
       @media screen and (max-width: 1125px) {
