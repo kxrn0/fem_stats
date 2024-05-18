@@ -27,7 +27,6 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 - [Live](https://kxrn0.github.io/fem_stats/)
 - [Solution](https://github.com/kxrn0/fem_stats)
 
